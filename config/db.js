@@ -1,9 +1,8 @@
-const mongoose = require("mongoose")
+const mongoose=require("mongoose");
 
-
-const connection = mongoose.connect(process.env.MONGODB_URL)
-
-
-module.exports = {
-    connection
+const connection =async()=>{
+    await mongoose.connect(process.env.MONGODB_URL,()=>{
+        console.log("DB")
+    })
 }
+module.exports=connection
